@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<!-- Removals -->
+		<referenceBlock name="report.bugs" remove="true"/>
+		<!--<referenceBlock name="copyright" remove="true"/>-->
+		<referenceBlock name="google_analytics" remove="true" />
+		<referenceBlock name="catalog.compare.link" remove="true"/>
+		<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+		<referenceBlock name="catalog.topnav" remove="true"/>
+		<referenceBlock name="form.subscribe" remove="true" />
+		<referenceBlock name="footer_links" remove="true" />
+		<move element="minicart" destination="header.panel.wrapper" before="header.panel"/>
+		<!-- Moves Mobile nav into header panel to allow for sticky header in mobile view-->
+		<move element="navigation.sections" destination="header.container" after="-" />
+		<referenceBlock name="logo">
+			<arguments>
+				<argument name="logo_img_width" xsi:type="number">200</argument>
+				<argument name="logo_img_height" xsi:type="number">40</argument>
+			</arguments>
+		</referenceBlock>
+		<referenceBlock name="store.menu">
+			<block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav.fix" template="Magento_Theme::html/topmenu.phtml" before="-"/>
+			<block class="Magento\Cms\Block\Block" name="catalog.topnav.switcher" after="-">
+				<arguments>
+					<argument name="block_id" xsi:type="string">top_menu_switcher</argument>
+				</arguments>
+			</block>
+		</referenceBlock>
+		<referenceContainer name="footer">
+			<!-- @TODO Can not have reference to block which does not yet exists in theme.  Maybe this should point to static block instead of template? -->
+			<!-- Does footer interact with store switcher (regions)? -->
+			<!--<block class="Magento\Theme\Block\Html\Footer" name="footer_custom" template="html/footer.phtml"/>-->
+		</referenceContainer>
+
+	</body>
+</page>

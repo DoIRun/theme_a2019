@@ -1,0 +1,8 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<!--<css src="css/bootstrap.min.css" />-->
+		<link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css?family=GFS+Didot|Lato:400,700,900|Open+Sans:400,600i,700,800" src_type="url" />
+		<link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css?family=Poppins:100,300,300i,400,500,600" src_type="url" />
+		<link rel="stylesheet" type="text/css" src="https://use.fontawesome.com/releases/v5.7.2/css/all.css" src_type="url" />
+	</head>
+</page>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
+        <referenceBlock name="view.addto.compare" remove="true" />
+        <referenceContainer name="product.info.main">
+            <container name="product.info.promotion" label="Product Promotion" htmlTag="div" htmlClass="product-info-promotion">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.promotion" template="product/view/customattribute.phtml" after="product.info.extrahint">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getCustomAttribute</argument>
+                        <argument name="at_code" xsi:type="string">product_promotion</argument>
+                        <argument name="css_class" xsi:type="string">product_promotion</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="product_promotion"</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.howtoinfo" template="product/view/customattribute.phtml" after="product.promotion">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getCustomAttribute</argument>
+                        <argument name="at_code" xsi:type="string">howtoinfo</argument>
+                        <argument name="css_class" xsi:type="string">howtoinfo</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="howtoinfo"</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.stepbystepall" template="product/view/customattribute.phtml" before="product.info.details">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getCustomAttribute</argument>
+                    <argument name="at_code" xsi:type="string">stepbystepall</argument>
+                    <argument name="css_class" xsi:type="string">stepbystepall</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="add_attribute" xsi:type="string">style="clear:both;"</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Description</argument>
+                    <argument name="sort_order" xsi:type="string">3</argument>
+                </arguments>
+            </referenceBlock>
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.ingredients" template="product/view/customattribute.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getCustomAttribute</argument>
+                    <argument name="at_code" xsi:type="string">ingredients</argument>
+                    <argument name="css_class" xsi:type="string">ingredients</argument>
+                    <argument name="at_label" xsi:type="string">Ingredients</argument>
+                    <argument name="add_attribute" xsi:type="string">style=""</argument>
+                    <argument name="title" translate="true" xsi:type="string">Ingredients</argument>
+                    <argument name="sort_order" xsi:type="string">1</argument>
+                </arguments>
+            </block>
+            <referenceBlock name="product.attributes">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Features</argument>
+                    <argument name="sort_order" xsi:type="string">5</argument>
+                </arguments>
+            </referenceBlock>
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.faq" template="product/view/customattribute.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getCustomAttribute</argument>
+                    <argument name="at_code" xsi:type="string">faqinfo</argument>
+                    <argument name="css_class" xsi:type="string">faqinfo</argument>
+                    <argument name="at_label" xsi:type="string">faqinfo</argument>
+                    <argument name="add_attribute" xsi:type="string">style=""</argument>
+                    <argument name="title" translate="true" xsi:type="string">FAQ</argument>
+                    <argument name="sort_order" xsi:type="string">20</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.warranty" template="product/view/customattribute.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getCustomAttribute</argument>
+                    <argument name="at_code" xsi:type="string">warrantyinfo</argument>
+                    <argument name="css_class" xsi:type="string">warrantyinfo</argument>
+                    <argument name="at_label" xsi:type="string">warrantyinfo</argument>
+                    <argument name="add_attribute" xsi:type="string">style=""</argument>
+                    <argument name="title" translate="true" xsi:type="string">Warranty</argument>
+                    <argument name="sort_order" xsi:type="string">30</argument>
+                </arguments>
+            </block>
+            <referenceBlock name="reviewdisplay.tab">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">70</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="questiondisplay.tab">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">80</argument>
+                </arguments>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>
